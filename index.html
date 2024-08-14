@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extension Panel</title>
+  <style>
+    body {
+      width: 700px; /* set the width as needed */
+      height: 500px; /* set the height as needed */
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #headerContainer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    #addWordBtn,
+    #generatePdfBtn {
+      padding: 15px;
+      cursor: pointer;
+      background-color: #4CAF50; /* Green background color */
+      color: white; /* White text color */
+      border: none; /* Remove border */
+      border-radius: 5px; /* Optional: add a rounded border */
+    }
+
+    #sortOptions {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .sortLabel {
+      margin: 0;
+    }
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      text-align: center;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    /* Overlay styles */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    #wordList {
+      list-style: none;
+      padding: 0;
+    }
+
+    .word-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Distribute items horizontally */
+      margin-bottom: 10px;
+    }
+
+    .show-more-btn {
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+  <script src="node_modules/jspdf/dist/jspdf.min.js"></script>
+</head>
+<body>
+  <div id="headerContainer">
+    <h1>Your Word Bank</h1>
+    <button id="addWordBtn">Add Word</button>
+    <button id="generatePdfBtn">Generate PDF</button>
+  </div>
+  <div id="sortOptions">
+    <p class="sortLabel">Sort:</p>
+    <label>
+      <input type="radio" name="sortOption" value="chronologically" checked> Chronologically
+    </label>
+    <label>
+      <input type="radio" name="sortOption" value="alphabetically"> Alphabetically
+    </label>
+    <label>
+      <input type="radio" name="sortOption" value="groupByOrigin"> Group by Origin
+    </label>
+  </div>
+  <h2>Word Bank:</h2>
+  <ul id="wordList"></ul>
+  <script src="panel.js"></script>
+</body>
+</html>

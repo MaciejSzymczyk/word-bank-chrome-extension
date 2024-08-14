@@ -1,0 +1,24 @@
+{
+    "name": "Word Bank",
+    "version": "1.0.0",
+    "description": "save fancy words with definitions, synonyms and context!",
+    "manifest_version": 3,
+    "author": "IB Candidate",
+    "permissions": [
+        "activeTab",
+        "storage"
+      ],
+    "host_permissions":[
+        "https://api.dictionary.com/*"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["definition_popup.js"]
+        }
+      ],
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Your personal word bank"
+    }
+}
